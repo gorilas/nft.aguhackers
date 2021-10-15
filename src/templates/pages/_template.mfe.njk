@@ -1,0 +1,76 @@
+{% set currentAppName = "AppName" %}
+
+{% include "pages/_page.head.njk" %}
+
+{% from "components/header/_macro.header.njk" import componentHeader %}
+{% from "components/nav/_macro.nav.njk" import componentNav %}
+{% from "components/details/_macro.details.njk" import componentDetails %}
+
+<!-- template.mfe -->
+<body>
+  <!-- headerBlock -->
+  {% block headerBlock %}
+    {{ componentHeader({
+      "homepageUrl": "index.html",
+      "expandedLogo": true,
+      "subnav": {
+        "text": currentAppName
+      },
+      "classes": "relative z-40"
+    }) }}
+  {% endblock %}
+  <!-- /headerBlock -->
+  <!-- subheaderBlock -->
+  {% block subheaderBlock %}
+  {% endblock %}
+  <!-- /subheaderBlock -->
+  <main id="content" class="relative container mx-auto px-base">
+    <div class="pb-lg"></div>
+    <h1 class="c-h1">Título de página h1 (Ej: Accede al Servicio o Firma los documentos)</h1>
+    <!-- notificationHeaderBlock -->
+    {% block notificationHeaderBlock %}
+      {% include "pages/_page.notification-header.njk" %}
+    {% endblock %}
+    <!-- /notificationHeaderBlock -->
+    <!-- contentBlock -->
+    <!-- iframe -->
+    {% block contentBlock %}
+      {% include "pages/_page.spinner-block.njk" %}
+    {% endblock %}
+    <!-- /iframe -->
+    <!-- /contentBlock -->
+    <!-- notificationFooterBlock -->
+    {% block notificationFooterBlock %}
+      {% include "pages/_page.notification-footer.njk" %}
+    {% endblock %}
+    <!-- /notificationFooterBlock -->
+  </main>
+  <!-- footerBlock -->
+  {% block footerBlock %}
+    {% include "pages/_page.footer.njk" %}
+  {% endblock %}
+  <!-- /footerBlock -->
+  <!-- modalBlock -->
+  {% block modalBlock %}
+    {% include "pages/_page.spinner.njk" %}
+  {% endblock %}
+  <!-- /modalBlock -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.2/iframeResizer.min.js" integrity="sha512-dnvR4Aebv5bAtJxDunq3eE8puKAJrY9GBJYl9GC6lTOEC76s1dbDfJFcL9GyzpaDW4vlI/UjR8sKbc1j6Ynx6w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script type="text/javascript">
+
+    iFrameResize({
+      log                     : true,                  // Enable console logging
+      enablePublicMethods     : true,                  // Enable methods within iframe hosted page
+      resizedCallback         : function(messageData){ // Callback fn when resize is received
+        // console.log ("IFrame: "+ messageData.iframe.id + " Height: " + messageData.height + " Width: " + messageData.width + " Event type: " + messageData.type);
+      },
+      messageCallback         : function(messageData){ // Callback fn when message is received
+        // console.log ("IFrame: "+ messageData.iframe.id +" Message: " + messageData.message);
+      },
+      closedCallback         : function(id){ // Callback fn when iFrame is closed
+        // console.log ("IFrame: "+ id +" removed from page.");
+      }
+    });
+  </script>
+{% include "pages/_page.foot.njk" %}
+

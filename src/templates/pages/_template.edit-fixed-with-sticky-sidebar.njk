@@ -1,0 +1,36 @@
+{% extends "pages/_template.edit-fixed.njk" %}
+
+{% from "components/skip-link/_macro.skip-link.njk" import componentSkipLink %}
+
+{% block headerSkipLinkBlock %}
+  <!-- headerSkipLinkBlock -->
+  {{ componentSkipLink({
+    "text": "Saltar al contenido principal",
+    "href": "#content-center"
+  })  }}
+  <!-- /headerSkipLinkBlock -->
+{% endblock %}
+
+{% block contentBlock %}
+  <!-- contentBlock -->
+  <div class="grid grid-cols-4 gap-x-lg">
+    <div class="sticky top-0 hidden lg:block lg:col-span-1 h-screen  lg:-mt-2xl lg:pt-24 pb-lg overflow-y-auto">
+      <!-- sidebarBlock -->
+      {% block sidebarBlock %}
+      {% endblock %}
+      <!-- /sidebarBlock -->
+    </div>
+    <section id="content-center" class="col-span-4 lg:col-span-3 py-base lg:-mt-2xl lg:pt-28 lg:pl-lg" aria-label="Contenido central">
+      <!-- notificationInnerContentBlock -->
+      {% block notificationInnerContentBlock %}
+        {% include "pages/_page.notification-edit-inner-content.njk" %}
+      {% endblock %}
+      <!-- /notificationInnerContentBlock -->
+      <!-- innerContentBlock -->
+      {% block innerContentBlock %}
+      {% endblock %}
+      <!-- /innerContentBlock -->
+    </section>
+  </div>
+  <!-- /contentBlock -->
+{% endblock %}

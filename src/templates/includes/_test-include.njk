@@ -1,0 +1,13 @@
+{% from "components/test-component/_macro.test-component.njk" import componentTestComponent %}
+{% from "components/test-component-caller/_macro.test-component-caller.njk" import componentTestComponentCaller %}
+
+<p>This is a test include</p>
+{{ componentTestComponent({
+  "html": "This is a <strong class=\" font-bold \">text component</strong>"
+})  }}
+{% call componentTestComponentCaller({
+  "html": "This is a test component <strong class=\" font-bold \">with caller</strong>",
+  "caller": "<div class=\" w-48 p-2 \"><div class=\" border-4 border-dashed border-gray-200 rounded-lg h-40 \"></div></div>"
+})  %}
+    <div class=" w-48 p-2 "><div class=" border-4 border-dashed border-gray-200 rounded-lg h-40 "></div></div>
+{% endcall %}

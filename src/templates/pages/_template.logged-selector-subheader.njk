@@ -1,0 +1,81 @@
+{% extends "pages/_template.logged-selector.njk" %}
+
+{% from "components/button/_macro.button.njk" import componentButton %}
+{% from "components/menu-horizontal/_macro.menu-horizontal.njk" import componentMenuHorizontal %}
+
+
+{% block subheaderBlock %}
+  <div class="border-b border-neutral-dark bg-white">
+    <div class="container mx-auto mt-base -mb-px px-base">
+      <div class="lg:flex lg:flex-wrap lg:w-full">
+        <div class="lg:flex lg:flex-wrap lg:justify-between lg:w-full">
+          <div class="lg:flex-1">
+            <!-- subheaderNavigation -->
+            {% block subheaderNavigation %}
+              <p class="sr-only" id="navegacion-de-cabecera">Volver</p>
+              <nav aria-labelledby="navegacion-de-cabecera">
+                {{ componentButton({
+                  "html": '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140" class="self-center mr-2" aria-hidden="true" focusable="false" width="1em" height="1em"><path d="M37.93 27.93l-35 35a10 10 0 000 14.14l35 35a10 10 0 1014.14-14.14L38.41 84.27A2.5 2.5 0 0140.18 80H130a10 10 0 000-20H40.18a2.5 2.5 0 01-1.77-4.27l13.66-13.66a10 10 0 00-14.14-14.14z" fill="currentColor"></path></svg>Volver',
+                  "classes": "c-button--transparent c-button--sm",
+                  "href": "/"
+                })  }}
+              </nav>
+            {% endblock %}
+            <!-- /subheaderNavigation -->
+          </div>
+          <div class="flex flex-wrap lg:items-center mb-base lg:ml-auto lg:pl-base">
+            <!-- subheaderActions -->
+            {% block subheaderActions %}
+              {% include "includes/_acciones-de-cabecera.njk" %}
+            {% endblock %}
+            <!-- /subheaderActions -->
+          </div>
+        </div>
+        <div class="lg:w-full mb-base lg:mb-lg">
+          <!-- subheaderTitle -->
+          {% block subheaderTitle %}
+            <h3 class="c-h2 mb-xs">
+                Título del item (h3)
+            </h3>
+            <p class="font-semibold uppercase">
+              Subtitulo
+            </p>
+          {% endblock %}
+          <!-- /subheaderTitle -->
+        </div>
+        <div class="order-4 w-full">
+          <!-- subheaderMenu -->
+          {% block subheaderMenu %}
+            <h4 id="cabecera-menu" class="mt-lg text-sm uppercase lg:sr-only">Submenú de item</h4>
+            {{ componentMenuHorizontal({
+              "classes": "c-menu-horizontal--tabs",
+              "items": [
+                {
+                  "href": "http://www.google.com",
+                  "text": "Subsección 1"
+                },
+                {
+                  "href": "http://www.google.com",
+                  "text": "Subsección 2",
+                  "active": true
+                },
+                {
+                  "href": "http://www.google.com",
+                  "text": "Subsección 3"
+                },
+                {
+                  "href": "http://www.google.com",
+                  "text": "Subsección 4"
+                }
+              ],
+              "attributes": {
+                "aria-labelledby": "cabecera-menu"
+              }
+            })  }}
+          {% endblock %}
+          <!-- /subheaderMenu -->
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

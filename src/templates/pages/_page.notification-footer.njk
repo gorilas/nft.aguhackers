@@ -1,0 +1,33 @@
+{% from "components/alert/_macro.alert.njk" import componentAlert %}
+{% from "components/notification/_macro.notification.njk" import componentNotification %}
+<!-- page.notification-footer -->
+<section id="notification-footer-container" aria-labelledby="notification-footer-heading" class="fixed z-10 inset-x-0 bottom-base w-full" aria-hidden="true">{# aria-hidden must dissapear when a notification appears #}
+  <div class="container mx-auto px-base">
+    <p id="notification-footer-heading" class="sr-only">Avisos importantes a pie de página</p>
+    {% call componentAlert({
+      "button": {
+        "text": "Mostrar notificación",
+        "classes": "hidden",
+        "attributes": {
+          "onclick": "openAlert('notification-footer', this)"
+        }
+      },
+      "id": "notification-footer",
+      "attributes": {
+        "role": "alert",
+        "aria-live": "assertive"
+      }
+    })  %}
+      {{ componentNotification({
+        "title": {
+          "text": "El documento se ha cargado correctamente"
+        },
+        "type": "success",
+        "id": "type-success",
+        "isDismissible": true,
+        "classes": "c-notification--success"
+      })  }}
+    {% endcall %}
+  </div>
+</section>
+<!-- /page.notification-footer -->

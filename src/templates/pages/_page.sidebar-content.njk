@@ -1,0 +1,21 @@
+<!-- page.sidebar-content -->
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-xl">
+  <div class="col-span-2 lg:col-span-1">
+    <!-- sidebarBlock -->
+    {% block sidebarBlock %}
+    {% endblock %}
+    <!-- /sidebarBlock -->
+  </div>
+  <div class="col-span-2 lg:col-span-3">
+    <!-- notificationInnerContentBlock -->
+    {% block notificationInnerContentBlock %}
+      {% include "pages/_page.notification-edit-inner-content.njk" %}
+    {% endblock %}
+    <!-- /notificationInnerContentBlock -->
+    <!-- innerContentBlock -->
+    {% block innerContentBlock %}
+    {% endblock %}
+    <!-- /innerContentBlock -->
+  </div>
+</div>
+<!-- /page.sidebar-content -->

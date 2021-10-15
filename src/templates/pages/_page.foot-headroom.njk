@@ -1,0 +1,32 @@
+<!-- page.foot-headroom -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.12.0/headroom.min.js" integrity="sha512-9UsrKTYzS9smDm2E58MLs0ACtOki+UC4bBq4iK5wi7lJycwqcaiHxr1bdEsIVoK0l5STEzLUdYyDdFQ5OEjczw==" crossorigin="anonymous"></script>
+<script>
+  const modules = document.querySelectorAll('[data-module]');
+  for (const item in modules) if (modules.hasOwnProperty(item)) {
+    const moduleValue = modules[item].getAttribute('data-module');
+
+    if (moduleValue == 'c-header'){
+      const options = {
+        // vertical offset in px before element is first unpinned
+        offset : 0,
+        // scroll tolerance in px before state changes
+        tolerance : {
+          up : 0,
+          down : 0
+        },
+        // callback when unpinned, `this` is headroom object
+        onUnpin : function() {
+          // oculta todos los dropdowns que hubiese abiertos en el header
+        }
+      };
+      const headroom = new Headroom(modules[item], options);
+      headroom.init();
+    }
+  }
+</script>
+<script src="https://unpkg.com/@popperjs/core@2.4.4/dist/umd/popper.min.js"></script>
+<script src="https://unpkg.com/tippy.js@6.2.6/dist/tippy-bundle.umd.min.js"></script>
+<script type="module" src="../../js/index.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,37 @@
+{% set title = "Test Template Page" %}
+{% extends "pages/_template.test.njk" %}
+
+{% block contentBlock %}
+  <p>This is a test template</p>
+  <p class="c-paragraph mb-base">This is the contentBlock</p>
+  <br>
+  <p class="c-paragraph mb-base">Here comes a test include:</p>
+  {% include "includes/_test-include.njk" %}
+  <br>
+  <p class="c-paragraph mb-base">Here comes a project component:</p>
+  {% from "components/test-component/_macro.test-component.njk" import componentTestComponent %}
+  {{ componentTestComponent({
+    "text": "This is a test component"
+  })  }}
+  <br>
+  <p class="c-paragraph mb-base">Here comes a project component with caller:</p>
+  {# Remove the "caller" json parameter and use just the code between "call" and "endcall" instead #}
+  {% from "components/test-component-caller/_macro.test-component-caller.njk" import componentTestComponentCaller %}
+  {% call componentTestComponentCaller({
+    "html": "This is a text component <strong class=\" font-bold \">with caller</strong>",
+    "caller": "<div class=\" w-48 p-2 \"><div class=\" border-4 border-dashed border-gray-200 rounded-lg h-40 \"></div></div>"
+  })  %}
+      <div class=" w-48 p-2 "><div class=" border-4 border-dashed border-gray-200 rounded-lg h-40 "></div></div>
+  {% endcall %}
+  <br>
+  <p class="c-paragraph mb-base">Here comes a desy-frontend component:</p>
+  {% from "components/button/_macro.button.njk" import componentButton %}
+  {{ componentButton({
+      "text": "desy-frontend component",
+      "classes": "c-button--primary c-button--lg mb-xl"
+    })  }}
+  <div class="group mb-lg p-base bg-neutral-light hover:bg-warning-light " tabindex="0">
+    <div>Testing extending default variants. Hover this div to see in action.</div>
+    <div class="sr-only group-hover:not-sr-only">Adiós</div>
+  </div>
+{% endblock %}

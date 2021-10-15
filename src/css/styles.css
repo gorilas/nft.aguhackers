@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+/* ==========================================================================
+   styles.css
+   ========================================================================== */
+
+/* import desy_team styles */
+@import "../../node_modules/desy-frontend/src/css/styles.css";
+
+/* import custom styles */
+@import "./custom.css";

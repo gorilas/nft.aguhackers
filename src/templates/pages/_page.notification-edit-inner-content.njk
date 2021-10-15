@@ -1,0 +1,31 @@
+{% from "components/alert/_macro.alert.njk" import componentAlert %}
+{% from "components/notification/_macro.notification.njk" import componentNotification %}
+<!-- page.notification-edit-inner-content -->
+<section id="notification-inner-content-container" aria-labelledby="notification-inner-content-heading" class="sticky top-base z-10 lg:top-28 w-full" aria-hidden="true"> {# aria-hidden must dissapear when a notification appears #}{# top-28 depends on the fixed heading height #}
+  <p id="notification-inner-content-heading" class="sr-only">Avisos importantes en contenido central</p>
+  {% call componentAlert({
+    "button": {
+      "text": "Mostrar notificación",
+      "classes": "hidden",
+      "attributes": {
+        "onclick": "openAlert('notification-inner-content', this)"
+      }
+    },
+    "id": "notification-inner-content",
+    "attributes": {
+      "role": "alert",
+      "aria-live": "assertive"
+    }
+  })  %}
+    {{ componentNotification({
+      "title": {
+        "text": "El documento se ha cargado correctamente"
+      },
+      "type": "success",
+      "id": "type-success",
+      "isDismissible": true,
+      "classes": "c-notification--success mb-base"
+    })  }}
+  {% endcall %}
+</section>
+<!-- /page.notification-edit-inner-content -->

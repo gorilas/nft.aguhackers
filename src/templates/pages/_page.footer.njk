@@ -1,0 +1,20 @@
+<!-- page.footer -->
+{% from "components/footer/_macro.footer.njk" import componentFooter %}
+{{ componentFooter({
+  "meta": {
+    "visuallyHiddenTitle": "Enlaces a pie de página",
+    "items": [
+      {
+        "href": "#",
+        "text": "Accesibilidad"
+      },
+      {
+        "href": "#",
+        "text": "Mapa web"
+      }
+    ],
+    "html": 'Creado por <a href="https://sda.aragon.es/" class="c-link c-link--neutral">SDA Servicios Digitales de Aragón</a>'
+  },
+  "classes": "mt-lg lg:mt-48"
+})  }}
+<!-- /page.footer -->

@@ -1,0 +1,27 @@
+{% set currentAppName = "AppName" %}
+
+{% include "pages/_page.head.njk" %}
+
+<!-- template.mfe-iframe-content -->
+<body>
+  <!-- notificationHeaderBlock -->
+  {% block notificationHeaderBlock %}
+    {% include "pages/_page.notification-header.njk" %}
+  {% endblock %}
+  <!-- /notificationHeaderBlock -->
+  <!-- contentBlock -->
+  {% block contentBlock %}
+  {% endblock %}
+  <!-- /contentBlock -->
+  <!-- notificationFooterBlock -->
+  {% block notificationFooterBlock %}
+    {% include "pages/_page.notification-footer.njk" %}
+  {% endblock %}
+  <!-- /notificationFooterBlock -->
+  <!-- modalBlock -->
+  {% block modalBlock %}
+    {% include "pages/_page.spinner.njk" %}
+  {% endblock %}
+  <!-- /modalBlock -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.2/iframeResizer.contentWindow.min.js" integrity="sha512-14SY6teTzhrLWeL55Q4uCyxr6GQOxF3pEoMxo2mBxXwPRikdMtzKMYWy2B5Lqjr6PHHoGOxZgPaxUYKQrSmu0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+{% include "pages/_page.foot.njk" %}

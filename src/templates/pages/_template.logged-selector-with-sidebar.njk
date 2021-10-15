@@ -1,0 +1,29 @@
+{% extends "pages/_template.logged-selector.njk" %}
+
+{% set skipLinkHref = "#content-center" %}
+
+{% block contentBlock %}
+  <!-- headerContentBlock -->
+  {% block headerContentBlock %}
+  {% endblock %}
+  <!-- /headerContentBlock -->
+  <div class="grid grid-cols-2 lg:grid-cols-4 gap-xl">
+    <div class="col-span-2 lg:col-span-1">
+      <!-- sidebarBlock -->
+      {% block sidebarBlock %}
+      {% endblock %}
+      <!-- /sidebarBlock -->
+    </div>
+    <section id="content-center" class="col-span-2 lg:col-span-3" aria-label="Contenido central">
+      <!-- notificationInnerContentBlock -->
+      {% block notificationInnerContentBlock %}
+        {% include "pages/_page.notification-edit-inner-content.njk" %}
+      {% endblock %}
+      <!-- /notificationInnerContentBlock -->
+      <!-- innerContentBlock -->
+      {% block innerContentBlock %}
+      {% endblock %}
+      <!-- /innerContentBlock -->
+    </section>
+  </div>
+{% endblock %}

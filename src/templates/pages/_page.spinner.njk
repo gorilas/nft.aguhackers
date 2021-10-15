@@ -1,0 +1,12 @@
+{% from "components/spinner/_macro.spinner.njk" import componentSpinner %}
+<!-- page.spinner -->
+<aside aria-labelledby="page-spinner" aria-hidden="true">
+  {{ componentSpinner({
+    "text": "Espere por favor",
+    "classes": "hidden fixed inset-0 z-50 h-screen text-6xl text-neutral-base",
+    "attributes": {
+      "id": "page-spinner"
+    }
+  })  }} {# aria-hidden and .hidden must dissapear when showing the spinner in page #}{# When new content is loaded, the text must change to "Se ha cargado la página _título de la página_"... #}
+</aside>
+<!-- /page.spinner -->

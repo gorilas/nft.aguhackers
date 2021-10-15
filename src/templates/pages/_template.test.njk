@@ -1,0 +1,79 @@
+{% include "pages/_page.head.njk" %}
+<body>
+  {% from "components/header/_macro.header.njk" import componentHeader %}
+  {% call componentHeader({
+    classes: "relative z-40",
+    dropdown: {
+      isMenu: true,
+      text: "Usuario",
+      items: [
+      {
+        href: "/",
+        text: "Perfil"
+      },
+      {
+        href: "/",
+        text: "Cerrar sesión"
+      }],
+      attributes: {
+        "aria-label": "Navegación ejemplos"
+      }
+    },
+    navigation: {
+      classes: "hidden md:block",
+      items: [
+      {
+        text: "Test",
+        href: "index.html"
+      }],
+      attributes: {
+        "aria-label": "Navegación principal"
+      }
+    },
+    offcanvas: {
+      text: "Menú",
+      textClose: "Cerrar menú"
+    }
+  }) %}
+  <ul>
+    <li>
+      <h3 class="p-base text-base font-bold">Páginas</h3>
+        {% from "components/nav/_macro.nav.njk" import componentNav %}
+        {{ componentNav({
+          idPrefix: "navegacion-principal",
+          items: [
+          {
+            text: "Test",
+            href: "index.html"
+          }],
+          attributes: {
+            "aria-label": "Navegación principal"
+          }
+        }) }}
+    </li>
+    <li class="my-sm border-neutral-light border-0 border-t"><span class="sr-only">separador</span></li>
+    <li>
+      <h3 class="p-base text-base font-bold">Usuario</h3>
+      {{ componentNav({
+        idPrefix: "menu-usuario",
+        items: [
+        {
+          href: "/",
+          text: "Perfil"
+        },
+        {
+          href: "/",
+          text: "Cerrar sesión"
+        }],
+        attributes: {
+          "aria-label": "Menú de usuario"
+        }
+      }) }}
+    </li>
+  </ul>
+  {% endcall %}
+  <main id="content" class="container mx-auto px-base">
+    {% block contentBlock %}
+    {% endblock %}
+  </main>
+{% include "pages/_page.foot.njk" %}
