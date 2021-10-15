@@ -6,7 +6,7 @@
 
 > nft.aguhackers is a starter project to build user interfaces for Gobierno de Aragón government webapps, using desy-frontend npm package as dependecy.
 
-### 🏠 [Homepage](https://desy-ast.aragon.es/)
+### 🏠 [Homepage](https://ntf.aguhackers.com/)
 
 ## Prerequisites
 
@@ -21,7 +21,7 @@ npm install
 
 ## Author
 
-👤 **Desy (SDA Servicios Digitales de Aragón)**
+👤 **gorilas**
 
 
 ## Show your support
