@@ -4,7 +4,7 @@
 ![Prerequisite](https://img.shields.io/badge/node-%3E%3D12.18.0-blue.svg)
 [![License: EUPL--1.2](https://img.shields.io/badge/License-EUPL--1.2-yellow.svg)](https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12)
 
-> nft.aguhackers is a starter project to build user interfaces for Gobierno de Aragón government webapps, using desy-frontend npm package as dependecy.
+> nft.aguhackers is a project to show digital artwork from crytoartists to support the fundraising efforts to cure AGU.
 
 ### 🏠 [Homepage](https://ntf.aguhackers.com/)
 
